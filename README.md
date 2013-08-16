@@ -16,6 +16,6 @@ Example :
 
 Instruction To add in your project files :
 
-1. Copy "SSRestClient" folder  and Paster it inside your project folder.
+1. Copy "SSRestClient" folder  and Paste it inside your project folder.
 2. Add "SSRestClient" folder in your project file.
 3. Then start using with upper example.
