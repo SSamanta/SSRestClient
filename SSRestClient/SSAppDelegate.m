@@ -8,6 +8,7 @@
 
 #import "SSAppDelegate.h"
 #import "SSRestManager.h"
+#import "SSConnectionManager.h"
 @implementation SSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -16,6 +17,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    [self demoServiceConnection];
     [self demoServiceCall];
     return YES;
 }
@@ -26,6 +28,15 @@
     } onError:^(NSError *error) {
         NSLog(@"%@",error);
     }];
+}
+- (void)demoServiceConnection {
+    SSConnectionManager *connectionManager = [[SSConnectionManager alloc] init];
+    [connectionManager getHttpResponseWithBaseUrl:@"http://dl.dropboxusercontent.com/u/50403261/Rest/sample.json" onCompletion:^(id responseData, NSURLResponse *reponse) {
+        NSLog(@"%@",[[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
+    } onError:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+    [connectionManager cancel];
 }
 - (void)applicationWillResignActive:(UIApplication *)application
 {

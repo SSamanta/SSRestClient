@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5592DF8617E9B6E0001B674C /* SSConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5592DF8517E9B6E0001B674C /* SSConnectionManager.m */; };
+		5592DF8717E9B6E0001B674C /* SSConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5592DF8517E9B6E0001B674C /* SSConnectionManager.m */; };
 		B546B0E117BC921B0088F9F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B546B0E017BC921B0088F9F2 /* UIKit.framework */; };
 		B546B0E317BC921B0088F9F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B546B0E217BC921B0088F9F2 /* Foundation.framework */; };
 		B546B0E517BC921B0088F9F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B546B0E417BC921B0088F9F2 /* CoreGraphics.framework */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5592DF8417E9B6E0001B674C /* SSConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSConnectionManager.h; sourceTree = "<group>"; };
+		5592DF8517E9B6E0001B674C /* SSConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSConnectionManager.m; sourceTree = "<group>"; };
 		B546B0DD17BC921B0088F9F2 /* SSRestClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SSRestClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B546B0E017BC921B0088F9F2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B546B0E217BC921B0088F9F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -176,6 +180,8 @@
 				B546B12417BC95390088F9F2 /* SSRestClient.h */,
 				B546B11C17BC92A30088F9F2 /* SSRestManager.h */,
 				B546B11D17BC92A30088F9F2 /* SSRestManager.m */,
+				5592DF8417E9B6E0001B674C /* SSConnectionManager.h */,
+				5592DF8517E9B6E0001B674C /* SSConnectionManager.m */,
 				B546B12017BC93730088F9F2 /* SSJsonResponseHandler.h */,
 				B546B12117BC93730088F9F2 /* SSJsonResponseHandler.m */,
 			);
@@ -294,6 +300,7 @@
 			files = (
 				B546B0ED17BC921B0088F9F2 /* main.m in Sources */,
 				B546B0F117BC921B0088F9F2 /* SSAppDelegate.m in Sources */,
+				5592DF8617E9B6E0001B674C /* SSConnectionManager.m in Sources */,
 				B546B11E17BC92A30088F9F2 /* SSRestManager.m in Sources */,
 				B546B12217BC93730088F9F2 /* SSJsonResponseHandler.m in Sources */,
 			);
@@ -304,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B546B10C17BC921B0088F9F2 /* SSRestClientTests.m in Sources */,
+				5592DF8717E9B6E0001B674C /* SSConnectionManager.m in Sources */,
 				B546B11F17BC92A30088F9F2 /* SSRestManager.m in Sources */,
 				B546B12317BC93730088F9F2 /* SSJsonResponseHandler.m in Sources */,
 			);
@@ -472,6 +480,7 @@
 				B546B11117BC921B0088F9F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B546B11217BC921B0088F9F2 /* Build configuration list for PBXNativeTarget "SSRestClientTests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +489,7 @@
 				B546B11417BC921B0088F9F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
