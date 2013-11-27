@@ -12,7 +12,7 @@ Instruction To add in your project files :
 Example : 
 
 - (void)demoServiceCall {
-    SSRestManager *restManager = [[SSRestManager alloc] init];
+    SSRestManager *restManager = [[SSRestManager alloc] init];\n
     [restManager getJsonResponseFromBaseUrl:@"http:/example.com" query:@"/?count=30" onCompletion:^(NSDictionary *json) {
         NSLog(@"%@",json);
     } onError:^(NSError *error) {
