@@ -17,4 +17,5 @@
 - (void)getHttpResponseWithBaseUrl:(NSString *)url onCompletion:(SSServiceResponseHandler)serviceHandler onError:(SSErrorHandler)errorHandler;
 - (void)getServiceResponseWithBaseUrl:(NSString *)baseUrl query:(NSString *)queryString onCompletion:(SSServiceResponseHandler )serviceHandler onError:(SSErrorHandler)errorHandler;
 -(void)getJsonResponseFromBaseUrl:(NSString *)baseUrl query:(NSString *)queryString onCompletion:(SSJSONResponseHandler)jsonHandler onError:(SSErrorHandler)errorHandler;
++(void)postFileData:(NSData *)data withBaseURL:(NSString *)baseURL withFileName:(NSString *)fileName fileKey:(NSString *)key onCompletion:(SSServiceResponseHandler)serviceHandler onError:(SSErrorHandler)errorHandler;
 @end

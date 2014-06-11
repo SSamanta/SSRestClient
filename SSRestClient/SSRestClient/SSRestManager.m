@@ -52,4 +52,26 @@
         errorHandler (error);
     }];
 }
++(void)postFileData:(NSData *)data withBaseURL:(NSString *)baseURL withFileName:(NSString *)fileName fileKey:(NSString *)key onCompletion:(SSServiceResponseHandler)serviceHandler onError:(SSErrorHandler)errorHandler {
+    NSMutableURLRequest *request =[[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:baseURL]];
+    [request setHTTPMethod:@"POST"];
+    NSString *boundary = @"14737809831466499882746641449";
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+    [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+    NSMutableData *body = [NSMutableData data];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition:form-data; name=\"%@\"; filename=\"%@\"\r\n",key,fileName] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[NSData dataWithData:data]];
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setHTTPBody:body];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (data) {
+            serviceHandler(data,response);
+        }else if (connectionError) {
+            errorHandler(connectionError);
+        }
+    }];
+}
 @end
