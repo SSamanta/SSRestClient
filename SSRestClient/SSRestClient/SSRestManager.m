@@ -74,4 +74,33 @@
         }
     }];
 }
+
+#pragma mark NSURLSession enable methods
++ (void)fetchJsonDataFromURL:(NSString *)url onCompletion:(SSJSONResponseHandler)jsonHandler onError:(SSErrorHandler)errorHandler{
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error) {
+            errorHandler(error);
+        }else {
+            SSJsonResponseHandler *jsonResponseHandler = [[SSJsonResponseHandler alloc] init];
+            [jsonResponseHandler getJsonResponseFromData:data onCompletion:^(NSDictionary *json) {
+                jsonHandler(json);
+            } onError:^(NSError *error) {
+                errorHandler(error);
+            }];
+        }
+    }] resume];
+}
+
++ (void)fetchDownloadedDataFromURL:(NSString *)url onCompletion:(SSServiceResponseHandler)serviceHandler onError:(SSErrorHandler)errorHandler {
+     NSURLSession *session = [NSURLSession sharedSession];
+    [[session downloadTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+        if (error) {
+            errorHandler (error);
+        }else {
+            NSData *data = [NSData dataWithContentsOfURL:location];
+            serviceHandler(data,response);
+        }
+    }] resume];
+}
 @end
