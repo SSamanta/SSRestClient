@@ -22,4 +22,5 @@
     // adding nsurl session functionality
 + (void)fetchJsonDataFromURL:(NSString *)url onCompletion:(SSJSONResponseHandler)jsonHandler onError:(SSErrorHandler)errorHandler;
 + (void)fetchDownloadedDataFromURL:(NSString *)url onCompletion:(SSServiceResponseHandler)serviceHandler onError:(SSErrorHandler)errorHandler;
+-(void)getDataFromRestClient:(NSString *)urlString onCompletion:(SSServiceResponseHandler)serviceHandler onError:(SSErrorHandler)errorHandler;
 @end

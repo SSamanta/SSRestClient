@@ -103,4 +103,45 @@
         }
     }] resume];
 }
+
+-(void)getDataFromRestClient:(NSString *)urlString onCompletion:(SSServiceResponseHandler)serviceHandler onError:(SSErrorHandler)errorHandler {
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    [request setValue:self.authorizationValue? self.authorizationValue :@"" forHTTPHeaderField:@"Authorization"];
+    [request addValue:self.contentType? self.contentType :@"" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:self.httpMethod];
+    [request setHTTPBody:[self.httpBody? self.httpBody : @"" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+     NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error) {
+            errorHandler (error);
+        }else {
+            serviceHandler (data,response);
+        }
+    }] resume];
+}
+-(void)getJsonFromRestClient:(NSString *)urlString onCompletion:(SSJSONResponseHandler)jsonHandler onError:(SSErrorHandler)errorHandler {
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    [request setValue:self.authorizationValue? self.authorizationValue :@"" forHTTPHeaderField:@"Authorization"];
+    [request addValue:self.contentType? self.contentType :@"" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPMethod:self.httpMethod];
+    [request setHTTPBody:[self.httpBody? self.httpBody : @"" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (error) {
+            errorHandler(error);
+        }else {
+            SSJsonResponseHandler *jsonResponseHandler = [[SSJsonResponseHandler alloc] init];
+            [jsonResponseHandler getJsonResponseFromData:data onCompletion:^(NSDictionary *json) {
+                jsonHandler(json);
+            } onError:^(NSError *error) {
+                errorHandler(error);
+            }];
+        }
+
+    }] resume];
+}
 @end
