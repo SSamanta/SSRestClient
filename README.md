@@ -1,4 +1,4 @@
-# SSHTTPClient
+# SSRestClient
 
 SSRestClient is a resuable IOS components for network call to ease task of differnt type REST based network call.
 
