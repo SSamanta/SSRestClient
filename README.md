@@ -26,7 +26,7 @@ Sample service call
  NSString *queryString = "/us/rss/topfreeapplications/limit=100/json"
 ```
 ```sh
- (void)demoServiceCall { SSRestManager *restManager = [[SSRestManager alloc] init]; 
+ -(void)demoServiceCall { SSRestManager *restManager = [[SSRestManager alloc] init]; 
  [restManager getJsonResponseFromBaseUrl:baseUrlString query:queryString onCompletion:^(NSDictionary *json) { 
   NSLog(@"%@",json); } onError:^(NSError *error) { NSLog(@"%@",error); }]; 
  }
