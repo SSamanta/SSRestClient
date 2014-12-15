@@ -1,21 +1,36 @@
-SSRestClient
-============
+# SSHTTPClient
 
-Simple Rest Client and JSON response handler reusable classes.
+SSRestClient is a resuable IOS components for network call to ease task of differnt type REST based network call.
 
-Example : 
+  - Easy to use
+  - Support different HTTP methods 
+  - Using Objective-C
 
-- (void)demoServiceCall {
-    SSRestManager *restManager = [[SSRestManager alloc] init];
-    [restManager getJsonResponseFromBaseUrl:@"https://dl.dropboxusercontent.com" query:@"/u/50403261/Rest/sample.json" onCompletion:^(NSDictionary *json) {
-        NSLog(@"%@",json);
-    } onError:^(NSError *error) {
-        NSLog(@"%@",error);
-    }];
-}
+SSRestClient is a lightweight resuable component using swift language and NSURLSession class:
+### Version
+2.0.0
 
-Instruction To add in your project files :
 
-1. Copy "SSRestClient" folder  and Paste it inside your project folder.
-2. Add "SSRestClient" folder in your project file.
-3. Then start using with upper example.
+### Installation
+  - Copy "SSRestClient" folder and Paste it inside your project folder.
+  - Add "SSRestClient" folder in your project file.
+
+### Installation
+
+Sample service call
+
+```sh
+$ NSString *urlString = "http://itunes.apple.com/us/rss/topfreeapplications/limit=100/json"
+```
+
+```sh
+$ (void)demoServiceCall { SSRestManager *restManager = [[SSRestManager alloc] init]; 
+$ [restManager getJsonResponseFromBaseUrl:@"https://dl.dropboxusercontent.com" query:urlString onCompletion:^(NSDictionary *json) { 
+$  NSLog(@"%@",json); } onError:^(NSError *error) { NSLog(@"%@",error); }]; 
+$ }
+
+```
+License
+----
+
+NONE
