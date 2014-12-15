@@ -15,17 +15,19 @@ SSRestClient is a lightweight resuable component using swift language and NSURLS
   - Copy "SSRestClient" folder and Paste it inside your project folder.
   - Add "SSRestClient" folder in your project file.
 
-### Installation
+### Development
 
 Sample service call
 
 ```sh
-$ NSString *urlString = "http://itunes.apple.com/us/rss/topfreeapplications/limit=100/json"
+$ NSString *baseUrlString = "http://itunes.apple.com"
 ```
-
+```sh
+$ NSString *queryString = "/us/rss/topfreeapplications/limit=100/json"
+```
 ```sh
 $ (void)demoServiceCall { SSRestManager *restManager = [[SSRestManager alloc] init]; 
-$ [restManager getJsonResponseFromBaseUrl:@"https://dl.dropboxusercontent.com" query:urlString onCompletion:^(NSDictionary *json) { 
+$ [restManager getJsonResponseFromBaseUrl:baseUrlString query:queryString onCompletion:^(NSDictionary *json) { 
 $  NSLog(@"%@",json); } onError:^(NSError *error) { NSLog(@"%@",error); }]; 
 $ }
 
