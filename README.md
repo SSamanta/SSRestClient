@@ -6,7 +6,7 @@ SSRestClient is a resuable IOS components for network call to ease task of diffe
   - Support different HTTP methods 
   - Using Objective-C
 
-SSRestClient is a lightweight resuable component using swift language and NSURLSession class:
+SSRestClient is a lightweight resuable component using Objective C language and NSURLConnection class:
 ### Version
 2.0.0
 
