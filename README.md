@@ -20,16 +20,16 @@ SSRestClient is a lightweight resuable component using swift language and NSURLS
 Sample service call
 
 ```sh
-$ NSString *baseUrlString = "http://itunes.apple.com"
+ NSString *baseUrlString = "http://itunes.apple.com"
 ```
 ```sh
-$ NSString *queryString = "/us/rss/topfreeapplications/limit=100/json"
+ NSString *queryString = "/us/rss/topfreeapplications/limit=100/json"
 ```
 ```sh
-$ (void)demoServiceCall { SSRestManager *restManager = [[SSRestManager alloc] init]; 
-$ [restManager getJsonResponseFromBaseUrl:baseUrlString query:queryString onCompletion:^(NSDictionary *json) { 
-$  NSLog(@"%@",json); } onError:^(NSError *error) { NSLog(@"%@",error); }]; 
-$ }
+ (void)demoServiceCall { SSRestManager *restManager = [[SSRestManager alloc] init]; 
+ [restManager getJsonResponseFromBaseUrl:baseUrlString query:queryString onCompletion:^(NSDictionary *json) { 
+  NSLog(@"%@",json); } onError:^(NSError *error) { NSLog(@"%@",error); }]; 
+ }
 
 ```
 License
