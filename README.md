@@ -18,8 +18,9 @@ SSRestClient is a lightweight resuable component using Objective C language and 
 ### Development
 
 Sample service call
-
+```sh
  -(void)demoServiceCall { SSRestManager *restManager = [[SSRestManager alloc] init]; 
+ ```
  ```sh
  NSString *baseUrlString = @"http://itunes.apple.com";
 ```
